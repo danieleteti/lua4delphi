@@ -12,9 +12,6 @@
         <Projects Include="samples\02\LuaConsole.dproj">
             <Dependencies/>
         </Projects>
-        <Projects Include="samples\03\LuaCharacterInterface.dproj">
-            <Dependencies/>
-        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -50,23 +47,14 @@
     <Target Name="LuaConsole:Make">
         <MSBuild Projects="samples\02\LuaConsole.dproj" Targets="Make"/>
     </Target>
-    <Target Name="LuaCharacterInterface">
-        <MSBuild Projects="samples\03\LuaCharacterInterface.dproj"/>
-    </Target>
-    <Target Name="LuaCharacterInterface:Clean">
-        <MSBuild Projects="samples\03\LuaCharacterInterface.dproj" Targets="Clean"/>
-    </Target>
-    <Target Name="LuaCharacterInterface:Make">
-        <MSBuild Projects="samples\03\LuaCharacterInterface.dproj" Targets="Make"/>
-    </Target>
     <Target Name="Build">
-        <CallTarget Targets="LuaBindingUnitTests;LuaEmbedded;LuaConsole;LuaCharacterInterface"/>
+        <CallTarget Targets="LuaBindingUnitTests;LuaEmbedded;LuaConsole"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="LuaBindingUnitTests:Clean;LuaEmbedded:Clean;LuaConsole:Clean;LuaCharacterInterface:Clean"/>
+        <CallTarget Targets="LuaBindingUnitTests:Clean;LuaEmbedded:Clean;LuaConsole:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="LuaBindingUnitTests:Make;LuaEmbedded:Make;LuaConsole:Make;LuaCharacterInterface:Make"/>
+        <CallTarget Targets="LuaBindingUnitTests:Make;LuaEmbedded:Make;LuaConsole:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
